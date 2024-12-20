@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets'
+import { Blocks, ImageUp, PackageOpen, Paintbrush, ShoppingCart } from 'lucide-solid'
+
+import logoHorizontal from '@/public/logo-horizontal.png'
+---
+
+<div class="drawer lg:drawer-open">
+  <input id="main-sidebar" type="checkbox" class="drawer-toggle" />
+
+  <div class="drawer-side">
+    <label for="main-sidebar" aria-label="close sidebar" class="drawer-overlay"></label>
+
+    <ul class="menu min-h-full w-80 bg-base-200 p-2 text-base-content">
+      <Image src={logoHorizontal} alt="Logo da Tapajós Formaturas" class="mb-6 mt-2 px-8 grayscale invert" />
+
+      <li>
+        <details open>
+          <summary><Blocks class="w-4 text-primary" />Fotos, Materiais e Design</summary>
+
+          <ul class="my-1 space-y-1">
+            <li>
+              <a href="#">
+                <ImageUp class="w-4" />Envio de Fotos
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <Paintbrush class="w-4" />Materiais e Design
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <ShoppingCart class="w-4" />Produtos
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <PackageOpen class="w-4" />Inventário
+              </a>
+            </li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
+
+  <div class="drawer-content flex flex-col items-center justify-center">
+    <slot />
+
+    <label for="main-sidebar" class="btn btn-primary drawer-button lg:hidden"> Open drawer </label>
+  </div>
+</div>
